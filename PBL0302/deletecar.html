@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+<body style="background-color: #f8f9fa;">
+  <div class="container mt-5 mb-5">
+    
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-10">
+        <div class="card shadow-sm" style="border-radius: 8px; border: none;">
+          <div class="card-header text-white" style="background-color: #d9534f; border-radius: 8px 8px 0 0;">
+            <h5 class="mb-0">Delete Car Data</h5>
+          </div>
+          <div class="card-body bg-white text-center">
+            
+            <h4 class="mt-4 mb-4">AAre you sure you want to delete the car? <strong class="text-danger">"{{ car.carname }}"</strong>?</h4>
+            
+            <div class="alert alert-warning text-left" style="border-radius: 4px; display: inline-block;">
+                <strong>Attention:</strong> Deleted data cannot be recovered.
+            </div>
+            
+            <form role="form" action="{{url_for('deletecarsave')}}" method="POST" class="mt-4">
+                <input type="hidden" name="id" value="{{ car.id }}">
+                
+                <!-- Layout Tombol: Kembali di Kiri Bawah, Hapus di Kanan Bawah -->
+                <div class="d-flex justify-content-between align-items-center mt-5">
+                  <a href="{{ url_for('readcar') }}" class="btn btn-outline-secondary px-4" style="border-radius: 4px; background-color: white;">
+                    &lt; Kembali
+                  </a>
+                  <button type="submit" class="btn btn-danger px-5" style="border-radius: 4px; background-color: #d9534f; border-color: #d43f3a;">Hapus Permanen</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+{% include 'footer.html' %}
